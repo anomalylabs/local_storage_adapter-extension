@@ -52,20 +52,21 @@ class LoadDisk implements SelfHandling
         FilesystemManager $filesystem,
         ConfigurationRepositoryInterface $configuration
     ) {
-        $mode = $configuration->get(
-            'anomaly.extension.local_storage_adapter::privacy',
-            $this->disk->getSlug()
+        $private = $configuration->value(
+            'anomaly.extension.local_storage_adapter::private',
+            $this->disk->getSlug(),
+            false
         );
 
-        if ($mode === 'private') {
-            $method = 'getStoragePath';
+        if ($private) {
+            $root = $application->getStoragePath("files-module/{$this->disk->getSlug()}");
         } else {
-            $method = 'getAssetsPath';
+            $root = $application->getAssetsPath("files-module/{$this->disk->getSlug()}");
         }
 
         $driver = new AdapterFilesystem(
             $this->disk,
-            new Local($application->{$method}("files-module/{$this->disk->getSlug()}"))
+            new Local($root)
         );
 
         $flysystem->mountFilesystem($this->disk->getSlug(), $driver);
