@@ -7,9 +7,9 @@ use Anomaly\LocalStorageAdapterExtension\Command\LoadDisk;
 /**
  * Class LocalStorageAdapterExtension
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\LocalStorageAdapterExtension
  */
 class LocalStorageAdapterExtension extends AdapterExtension
