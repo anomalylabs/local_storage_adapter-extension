@@ -10,7 +10,6 @@ use Anomaly\LocalStorageAdapterExtension\Command\LoadDisk;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\LocalStorageAdapterExtension
  */
 class LocalStorageAdapterExtension extends AdapterExtension
 {

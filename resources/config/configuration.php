@@ -2,6 +2,6 @@
 
 return [
     'private' => [
-        'type' => 'anomaly.field_type.boolean'
-    ]
+        'type' => 'anomaly.field_type.boolean',
+    ],
 ];

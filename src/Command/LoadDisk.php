@@ -4,7 +4,6 @@ use Anomaly\ConfigurationModule\Configuration\Contract\ConfigurationRepositoryIn
 use Anomaly\FilesModule\Disk\Adapter\AdapterFilesystem;
 use Anomaly\FilesModule\Disk\Contract\DiskInterface;
 use Anomaly\Streams\Platform\Application\Application;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Filesystem\FilesystemManager;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\MountManager;
@@ -15,9 +14,8 @@ use League\Flysystem\MountManager;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\LocalStorageAdapterExtension\Command
  */
-class LoadDisk implements SelfHandling
+class LoadDisk
 {
 
     /**
@@ -40,10 +38,10 @@ class LoadDisk implements SelfHandling
     /**
      * Handle the command.
      *
-     * @param MountManager                     $flysystem
-     * @param Application                      $application
-     * @param FilesystemManager                $filesystem
-     * @param ConfigurationRepositoryInterface $configuration
+     * @param  MountManager                     $flysystem
+     * @param  Application                      $application
+     * @param  FilesystemManager                $filesystem
+     * @param  ConfigurationRepositoryInterface $configuration
      * @return AdapterFilesystem
      */
     public function handle(
