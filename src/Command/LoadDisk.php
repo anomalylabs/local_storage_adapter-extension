@@ -64,7 +64,10 @@ class LoadDisk
 
         $driver = new AdapterFilesystem(
             $this->disk,
-            new Local($root)
+            new Local($root),
+            [
+                'base_url' => $private ? 'private' : '//' . trim(str_replace(public_path(), '', $root), '/'),
+            ]
         );
 
         $flysystem->mountFilesystem($this->disk->getSlug(), $driver);
