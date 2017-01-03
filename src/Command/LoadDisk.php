@@ -66,7 +66,7 @@ class LoadDisk
             $this->disk,
             new Local($root),
             [
-                'base_url' => $private ? null : '//' . trim(str_replace(public_path(), '', $root), '/'),
+                'base_url' => $private ? null : url(trim(str_replace(public_path(), '', $root), '/')),
             ]
         );
 
