@@ -84,7 +84,7 @@ class LoadDisk
         $config->set(
             'filesystems.disks.' . $this->disk->getSlug(),
             [
-                'driver' => $this-disk->getSlug(),
+                'driver' => $this->disk->getSlug(),
                 'root'   => $root,
             ]
         );
