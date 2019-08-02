@@ -52,10 +52,15 @@ class LoadDisk
         FilesystemManager $filesystem,
         ConfigurationRepositoryInterface $configuration
     ) {
+
+        /**
+         * @todo @deprecated public storage in v2.1.11 - removing in v2.2
+         *       values should remain the same and work for now in v2.1.12+
+         */
         $private = $configuration->value(
             'anomaly.extension.local_storage_adapter::private',
             $this->disk->getSlug(),
-            false
+            true
         );
 
         if ($private) {
