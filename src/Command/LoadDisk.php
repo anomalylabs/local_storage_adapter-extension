@@ -69,7 +69,7 @@ class LoadDisk
             $this->disk,
             new Local($root),
             [
-                'base_url' => $private ? null : asset(trim(str_replace(public_path(), '', $root), '/\\')),
+                'base_url' => $root,
             ]
         );
 
