@@ -6,8 +6,7 @@ use Anomaly\FilesModule\Disk\Contract\DiskInterface;
 use Anomaly\Streams\Platform\Application\Application;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Filesystem\FilesystemManager;
-use League\Flysystem\Adapter\Local;
-use League\Flysystem\MountManager;
+use League\Flysystem\Local\LocalFilesystemAdapter;
 
 /**
  * Class LoadDisk
@@ -38,16 +37,14 @@ class LoadDisk
 
     /**
      * Handle the command.
-     * 
+     *
      * @param Repository                       $config
-     * @param MountManager                     $flysystem
      * @param Application                      $application
      * @param FilesystemManager                $filesystem
      * @param ConfigurationRepositoryInterface $configuration
      */
     public function handle(
         Repository $config,
-        MountManager $flysystem,
         Application $application,
         FilesystemManager $filesystem,
         ConfigurationRepositoryInterface $configuration
@@ -67,13 +64,11 @@ class LoadDisk
 
         $driver = new AdapterFilesystem(
             $this->disk,
-            new Local($root),
+            new LocalFilesystemAdapter($root),
             [
                 'base_url' => $root,
             ]
         );
-
-        $flysystem->mountFilesystem($this->disk->getSlug(), $driver);
 
         $filesystem->extend(
             $this->disk->getSlug(),

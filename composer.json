@@ -24,5 +24,8 @@
         "psr-4": {
             "Anomaly\\LocalStorageAdapterExtension\\": "src/"
         }
+    },
+    "require": {
+        "anomaly/files-module": "^2.7"
     }
 }

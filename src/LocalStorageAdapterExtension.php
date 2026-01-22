@@ -29,6 +29,6 @@ class LocalStorageAdapterExtension extends AdapterExtension
      */
     public function load(DiskInterface $disk)
     {
-        $this->dispatch(new LoadDisk($disk));
+        dispatch_sync(new LoadDisk($disk));
     }
 }
